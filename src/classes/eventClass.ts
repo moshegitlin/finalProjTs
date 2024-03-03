@@ -65,10 +65,6 @@ public getwarning(): string {
     </div>
         `;
     }
-
- 
-        // ...other properties and methods...
-    
         public static createForm(): HTMLFormElement {
             let form = document.createElement('form');
             form.id = 'id_form';
@@ -85,26 +81,8 @@ public getwarning(): string {
             let button = document.createElement('button');
             button.textContent = 'submit';
             form.appendChild(button);
-        
-            button.addEventListener('click', (event) => {
-                event.preventDefault();
-                this.handleFormSubmit(form);
-            });
-        
             return form;
-        }
-    
-        private static handleFormSubmit(form: HTMLFormElement): void {
-            let formData = {};
-            for (let i = 0; i < form.elements.length; i++) {
-                let element = form.elements[i] as HTMLInputElement;
-                if (element.id.startsWith('id_')) {
-                    formData[element.id.substring(3)] = element.value;
-                }
-            }
-            console.log(formData);
-        }
-        
+        } 
         private static addInput(form: HTMLFormElement, id: string, type: string,className:string='form-control'): void {
             let label = document.createElement('label');
             label.textContent = id;
@@ -116,7 +94,50 @@ public getwarning(): string {
             input.type = type;
             form.appendChild(input);
         }
+        public static createFormAndHandleSubmit(event:Element): Promise<any> {
+            return new Promise((resolve, reject) => {
+                let form = this.createForm();
+            
+                if (event) {
+                    event.appendChild(form);
+                } else {
+                    reject(new Error('Container not found'));
+                    return;
+                }
+        
+                let button = form.querySelector('button');
+                if (button) {
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                    let formData = this.handleFormSubmit(form);
+                    event.removeChild(form)
+                    resolve(formData);
+                    });
+                  
+                } else {
+                    reject(new Error('Button not found in form'));
+                }
+            });
+        }
+        
+        private static handleFormSubmit(form: HTMLFormElement): any {
+            let formData = {};
+            for (let i = 0; i < form.elements.length; i++) {
+                let element = form.elements[i] as HTMLInputElement;
+                if (element.id.startsWith('id_')) {
+                    formData[element.id.substring(3)] = element.value;
+                }
+            }
+            return formData;
+        }
+        
+
+
+
+
+
     }
+    
     
     
 
