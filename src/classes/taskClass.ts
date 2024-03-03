@@ -1,4 +1,4 @@
-import AbstractNote from "../nainControl/abstracNote.js";
+import AbstractNote from "../mainControl/abstracNote.js";
 import TaskInterface from "../interfaces/tasksInterface.js";
 class Task extends AbstractNote implements TaskInterface{
     lastDataExecution: Date;

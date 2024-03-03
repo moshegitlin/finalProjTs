@@ -1,4 +1,4 @@
-import AbstractNote from "../nainControl/abstracNote.js";
+import AbstractNote from "../mainControl/abstracNote.js";
 import MeetingInterface from "../interfaces/meetingsInterface.js";
 class MeetingClass extends AbstractNote implements MeetingInterface {
     public DataAndTime: Date;

@@ -4,13 +4,18 @@ const event = new EventClass("event", "event", "event", "event", "2021-10-10", "
 const divEvent = document.querySelector(".container");
 
 
-const form = event.createForm();
+const form = EventClass.createForm();
 while(true){
     if(form){
         divEvent.appendChild(form);
         break
     }
 }
+ setTimeout(() => {
+    divEvent.removeChild(form);
+    divEvent.innerHTML =event.getwarning()
+}, 5000);
+
 
 
     

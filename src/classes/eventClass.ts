@@ -1,4 +1,4 @@
-import AbstractNote from "../nainControl/abstracNote.js";
+import AbstractNote from "../mainControl/abstracNote.js";
 import EventInterface from "../interfaces/eventInterface.js";
 class EventClass extends AbstractNote implements EventInterface {
     private DataAndTime: Date;
@@ -55,13 +55,13 @@ public getDataAndTime():string {
 public getwarning(): string {
     return `
     <div>
-    <p>Creation Date: ${this.getDateCreatedStr}</p>
-    <h2>title: ${this.getTitle}</h2>
-    <p>text: ${this.getText}</p>
-    <p>location: ${this.getLocation}</p>
-    <p>date of event: ${this.getDate}</p>
-    <p>time of event: ${this.getTime}</p>
-    <p>equipment: ${this.getEquipment}</p>
+    <p>Creation Date: ${this.getDateCreatedStr()}</p>
+    <h2>title: ${this.getTitle()}</h2>
+    <p>text: ${this.getText()}</p>
+    <p>location: ${this.getLocation()}</p>
+    <p>date of event: ${this.getDate()}</p>
+    <p>time of event: ${this.getTime()}</p>
+    <p>equipment: ${this.getEquipment()}</p>
     </div>
         `;
     }
@@ -69,7 +69,7 @@ public getwarning(): string {
  
         // ...other properties and methods...
     
-        public createForm(): HTMLFormElement {
+        public static createForm(): HTMLFormElement {
             let form = document.createElement('form');
             form.id = 'id_form';
         
@@ -94,7 +94,7 @@ public getwarning(): string {
             return form;
         }
     
-        private handleFormSubmit(form: HTMLFormElement): void {
+        private static handleFormSubmit(form: HTMLFormElement): void {
             let formData = {};
             for (let i = 0; i < form.elements.length; i++) {
                 let element = form.elements[i] as HTMLInputElement;
@@ -105,7 +105,7 @@ public getwarning(): string {
             console.log(formData);
         }
         
-        private addInput(form: HTMLFormElement, id: string, type: string,className:string='form-control'): void {
+        private static addInput(form: HTMLFormElement, id: string, type: string,className:string='form-control'): void {
             let label = document.createElement('label');
             label.textContent = id;
             form.appendChild(label);
