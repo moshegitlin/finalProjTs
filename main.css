@@ -1,0 +1,135 @@
+/* עיצוב כללי */
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* מרווח מהעליון והתחתון */
+    padding: 0 20px; /* מרווח מהצדדים */
+    box-sizing: border-box; /* כולל padding ו-border בגודל */
+}
+#id_form{
+    max-width: 600px;
+    margin: 50px auto; /* מרווח מהעליון והתחתון */
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f8c0c0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.form-control {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* כולל padding ו-border בגודל */
+}
+.form-text {
+    width: 10%;
+    margin-bottom: 80px; /* רווח בין שדות הקלט */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #261765;
+    box-sizing: border-box; /* כולל padding ו-border בגודל */
+}
+button {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* אנימציה */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* עיצוב כללי להתראה */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+/*סוויץ עריכה*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 50%;
+}
+
+.switch input { 
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.slider.active {
+    background-color: #2196F3;
+}
+
+.slider.round.active:before {
+    background-color: white;
+}
