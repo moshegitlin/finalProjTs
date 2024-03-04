@@ -36,10 +36,22 @@ class mainControlClass {
     }
     displayNotes(event:Element) {
         event.innerHTML = ''; // Clear the container
-
+        const noteElement = document.createElement('div');
+        noteElement.className = 'noteDiv';
+        event.appendChild(noteElement);
         this.notes.forEach((note, index) => {
-            const noteElement = document.createElement('div');
-            noteElement.textContent = JSON.stringify(note);
+            // עיבוד כל זוג מפתח-ערך באובייקט
+    for (let key in note) {
+        let label = document.createElement('label');
+        label.className = 'noteLabel';
+        label.textContent = key;
+        noteElement.appendChild(label);
+
+        let valueElement = document.createElement('div');
+        valueElement.textContent = note[key];
+        valueElement.className = 'noteValue';
+        noteElement.appendChild(valueElement);
+    }
 
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
