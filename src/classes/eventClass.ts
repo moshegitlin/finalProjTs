@@ -70,13 +70,13 @@ public getwarning(): string {
             form.id = 'id_form';
         
             // Add title input
-            this.addInput(form, '', 'text','form-text');
-            this.addInput(form, 'text', 'text','form-title');
-            this.addInput(form, 'img_url', 'text','form-img_url');
-            this.addInput(form, 'location', 'text','form-location');
-            this.addInput(form, 'data', 'date', 'form-date');
-            this.addInput(form, 'time', 'time','form-time');
-            this.addInput(form, 'equipment', 'text','form-equipment');
+            this.addInput(form, '', 'text','form-control');
+            this.addInput(form, 'text', 'text','form-control');
+            this.addInput(form, 'img_url', 'text','form-control');
+            this.addInput(form, 'location', 'text','form-control');
+            this.addInput(form, 'data', 'date', 'form-control');
+            this.addInput(form, 'time', 'time','form-control');
+            this.addInput(form, 'equipment', 'text','form-control');
         
             let button = document.createElement('button');
             button.textContent = 'submit';

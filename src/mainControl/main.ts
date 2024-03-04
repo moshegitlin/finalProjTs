@@ -3,7 +3,7 @@ import MeetingClass from "../classes/meetingClass.js";
 import Task from "../classes/taskClass.js";
 import AbstractNote from "../mainControl/abstracNote.js";
 const event = new EventClass("event", "event", "event", "event", "2021-10-10", "10:10", "event");
-const divEvent = document.querySelector(".container");
+const divEvent = document.querySelector("#form") as HTMLElement;
 let switchState: boolean = false;
 const btnEdit = document.getElementById('btnEdit') as HTMLInputElement;
 const slider = document.querySelector('.slider') as HTMLElement;
@@ -31,8 +31,8 @@ const meetingtForm = async () => {
 }
 const taskForm = async () => {
     try {
-        const form = await Task.createFormAndHandleSubmit(divEvent);
         const select = await createSelectAndListen(divEvent);
+        const form = await Task.createFormAndHandleSubmit(divEvent);
         console.log(select);
         console.log(form);
         notes.push(new Task(form.title,form.text,form.img_url,form.last_Date_Execution));
@@ -40,7 +40,10 @@ const taskForm = async () => {
         console.error(error);
     }
 }
+//קריאה לפונקציה
 taskForm();
+// eventForm();
+// meetingtForm();
  
 const createSelectAndListen = (event: Element): Promise<any> => {
     return new Promise((resolve, reject) => {
