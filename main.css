@@ -77,7 +77,11 @@ button {
 button:hover {
     background-color: #dd8046; /* אדום-כתום */
 }
+.btn{
+    margin-left: 18%;
+    margin-top: 20px;
 
+}
 /* עיצוב כללי להתראה */
 .alert {
     padding: 15px;
@@ -108,7 +112,8 @@ button:hover {
 }
 
 .switch input { 
-    display: none;
+    display: inline;
+    margin-top: 12px;
 }
 
 .slider {
@@ -123,7 +128,7 @@ button:hover {
     transition: .4s;
     border-radius: 34px;
 }
-
+/*כפתור הזזה*/
 .slider:before {
     position: absolute;
     content: "";
@@ -141,49 +146,24 @@ input:checked + .slider {
     background-color: #be4923;
 }
 
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
 input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
-
-/* כפתור ההזזה */
-.slider.round {
-    border-radius: 34px;
+/*סגנון כללי לטבלה*/
+.noteDiv {
+    font-size: 15px;
+    color: #85d169;
+    margin-top: 10px;
+    position: relative;
+    background-image: url('https://images.pexels.com/photos/461717/pexels-photo-461717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+   
 }
 
-.slider.round:before {
-    border-radius: 50%;
-}
-
-.slider.active {
-    background-color: #2196F3;
-}
-
-.slider.round.active:before {
-    background-color: white;
-}
-
-#notes{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 2px solid #ccc;
-    background-color: #fff; /* רקע לבן לטופס */
-    border-radius: 8px; /* פינות מעוגלות */
-    padding: 20px; /* ריווח פנימי */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* הצללה עדינה */
-}
-.noteDiv{
-    font-size: large;
-    color: #a94442;
-    
-}
 .noteLabel{
-    font-size: large;
-    color: #3c763d;
+    font-size: 22px;
+    color: #eaa6a6;
 }
+

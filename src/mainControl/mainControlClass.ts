@@ -36,13 +36,13 @@ class mainControlClass {
     }
     displayNotes(event:Element) {
         event.innerHTML = ''; // Clear the container
-        const noteElement = document.createElement('div');
-        noteElement.className = 'noteDiv';
-        event.appendChild(noteElement);
         this.notes.forEach((note, index) => {
+            const noteElement = document.createElement('div');
+            noteElement.className = 'noteDiv';
+            event.appendChild(noteElement);
             // עיבוד כל זוג מפתח-ערך באובייקט
-    for (let key in note) {
-        if (key ==='imgUrl'){
+            for (let key in note) {
+                if (key ==='imgUrl'){
             noteElement.style.backgroundImage = `url(${note[key]})`;
             continue;
         }
@@ -105,21 +105,21 @@ class mainControlClass {
      
             let option1 = document.createElement('option');
             option1.value = 'event';
-            option1.textContent = 'event';
+            option1.textContent = 'אירוע';
             select.appendChild(option1);
      
             let option2 = document.createElement('option');
             option2.value = 'task';
-            option2.textContent = 'task';
+            option2.textContent = 'משימה';
             select.appendChild(option2);
      
             let option3 = document.createElement('option');
             option3.value = 'meeting';
-            option3.textContent = 'meeting';
+            option3.textContent = 'פגישה';
             select.appendChild(option3);
      
             let button = document.createElement('button');
-            button.textContent = 'Add';
+            button.textContent = 'הוסף פתק חדש';
             event.appendChild(button);
      
             if (event) {
