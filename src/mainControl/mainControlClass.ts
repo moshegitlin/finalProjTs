@@ -68,13 +68,24 @@ class mainControlClass {
             btnElement.className = 'btnDiv';
     event.appendChild(btnElement);
     const btnEdit = document.getElementById('btnEdit') as HTMLInputElement;
-   
+            btnEdit.addEventListener('click', () => {
+                if (btnEdit.checked) {
+                    deleteButton.textContent = 'X';
+                } else {
+                    deleteButton.textContent = 'הצג פרטים';
+                }
+            });
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'X';
             deleteButton.addEventListener('click', () =>{
                 // console.log(btnEdit.checked);
-                this.deleteNote(index,event)});
- 
+                if(btnEdit.checked)
+                this.deleteNote(index,event)
+                else
+                // alert('אין הרשאה למחוק פתקים');
+                event.innerHTML+=this.notes[index].getwarning();
+            
+            });
                 btnElement.appendChild(deleteButton);
             event.appendChild(noteElement);
         });
