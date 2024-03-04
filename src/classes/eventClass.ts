@@ -70,7 +70,7 @@ public getwarning(): string {
             form.id = 'id_form';
         
             // Add title input
-            this.addInput(form, 'title', 'text','form-text');
+            this.addInput(form, '', 'text','form-text');
             this.addInput(form, 'text', 'text','form-title');
             this.addInput(form, 'img_url', 'text','form-img_url');
             this.addInput(form, 'location', 'text','form-location');

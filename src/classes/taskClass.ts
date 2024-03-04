@@ -31,18 +31,19 @@ class Task extends AbstractNote implements TaskInterface{
         form.id = 'id_form';
     
         // Add title input
-        this.addInput(form, 'title', 'text','form-control');
-        this.addInput(form, 'text', 'text','form-control');
-        this.addInput(form, 'img_url', 'text','form-control');
-        this.addInput(form, 'lastDateExecution', 'date','form-control');
+        this.addInput(form, 'title','Title', 'text','form-control');
+        this.addInput(form, 'text','Text', 'text','form-control');
+        this.addInput(form, 'img-url','Img', 'text','form-control');
+        this.addInput(form, 'last_Date_Execution','last Date Execution', 'date','form-control');
         let button = document.createElement('button');
         button.textContent = 'submit';
         form.appendChild(button);
         return form;
     } 
-    private static addInput(form: HTMLFormElement, id: string, type: string,className:string='form-control'): void {
+    private static addInput(form: HTMLFormElement, id: string, labeln:string, type: string,className:string='form-control'): void {
         let label = document.createElement('label');
-        label.textContent = id;
+        label.textContent = labeln;
+        label.id = 'id_' + id;
         form.appendChild(label);
     
         let input = document.createElement('input');

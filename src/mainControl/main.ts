@@ -4,9 +4,7 @@ import Task from "../classes/taskClass.js";
 import AbstractNote from "../mainControl/abstracNote.js";
 const event = new EventClass("event", "event", "event", "event", "2021-10-10", "10:10", "event");
 const divEvent = document.querySelector(".container");
-
-let switchState: boolean = false; // משתנה שמייצג את מצב ה-SWITCH
-
+let switchState: boolean = false;
 const btnEdit = document.getElementById('btnEdit') as HTMLInputElement;
 const slider = document.querySelector('.slider') as HTMLElement;
 const status = document.querySelector('.status') as HTMLElement;
@@ -37,7 +35,7 @@ const taskForm = async () => {
         const select = await createSelectAndListen(divEvent);
         console.log(select);
         console.log(form);
-        notes.push(new Task(form.title,form.text,form.img_url,form.lastDateExecution));
+        notes.push(new Task(form.title,form.text,form.img_url,form.last_Date_Execution));
     } catch (error) {
         console.error(error);
     }
@@ -102,7 +100,7 @@ btnEdit.addEventListener('click', function() {
     updateSwitchState(btnEdit.checked);
 });
 
-updateSwitchState(switchState); // עדכון התצוגה הראשונית
+updateSwitchState(switchState);
 
 
 

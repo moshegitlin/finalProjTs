@@ -1,19 +1,46 @@
 /* עיצוב כללי */
+body {
+    background-color: #f0e6d2; /* גוון שמנת */
+    color: #172d13; /* ירוק כהה לטקסט */
+    font-family: 'Arial', sans-serif; /* גופן מודרני ונקי */
+  }
 .container {
     max-width: 1200px;
     margin: 0 auto; /* מרווח מהעליון והתחתון */
     padding: 0 20px; /* מרווח מהצדדים */
     box-sizing: border-box; /* כולל padding ו-border בגודל */
+    
 }
 #id_form{
     max-width: 600px;
     margin: 50px auto; /* מרווח מהעליון והתחתון */
     padding: 20px;
     border: 2px solid #ccc;
-    border-radius: 10px;
-    background-color: #f8c0c0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: #fff; /* רקע לבן לטופס */
+    border-radius: 8px; /* פינות מעוגלות */
+    padding: 20px; /* ריווח פנימי */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* הצללה עדינה */
 }
+/* בחירת משימה */
+#id_add_note {
+    width: 200px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #cccccc60;
+    margin-left: 30%;
+    margin-top: 20%;
+}
+
+#id_add_note option {
+    
+    font-family: Arial, sans-serif;
+}
+
+#id_add_note option:checked {
+    background-color: lightgray;
+}
+
 .form-control {
     width: 100%;
     margin-bottom: 20px;
@@ -22,6 +49,13 @@
     border: 1px solid #ccc;
     box-sizing: border-box; /* כולל padding ו-border בגודל */
 }
+label{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
 .form-text {
     width: 10%;
     margin-bottom: 80px; /* רווח בין שדות הקלט */
@@ -31,18 +65,17 @@
     box-sizing: border-box; /* כולל padding ו-border בגודל */
 }
 button {
-    padding: 12px 24px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease; /* אנימציה */
+    background-color: #e16f28; /* אדום-כתום */
+    color: #fff; /* טקסט לבן */
+    border: none; /* ללא גבול */
+    padding: 10px 20px; /* ריווח פנימי */
+    border-radius: 5px; /* פינות מעוגלות */
+    cursor: pointer; /* סמן כפתור */
+    transition: background-color 0.3s; /* אפקט מעבר עבור הכפתור */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #dd8046; /* אדום-כתום */
 }
 
 /* עיצוב כללי להתראה */
@@ -70,7 +103,8 @@ button:hover {
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin-left: 50%;
+    margin-left: 20%;
+    margin-top: 5%;
 }
 
 .switch input { 
@@ -104,7 +138,7 @@ button:hover {
 }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #be4923;
 }
 
 input:focus + .slider {
@@ -117,7 +151,7 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-/* Rounded sliders */
+/* כפתור ההזזה */
 .slider.round {
     border-radius: 34px;
 }
@@ -133,3 +167,4 @@ input:checked + .slider:before {
 .slider.round.active:before {
     background-color: white;
 }
+
