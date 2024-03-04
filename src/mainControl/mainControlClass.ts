@@ -27,7 +27,6 @@ class mainControlClass {
                 } catch (error) {
                     console.error(error);
                 }
-   
     }
    
     deleteNote(index: number, event:Element) {
@@ -40,6 +39,8 @@ class mainControlClass {
             const noteElement = document.createElement('div');
             noteElement.className = 'noteDiv';
             event.appendChild(noteElement);
+           
+           
             // עיבוד כל זוג מפתח-ערך באובייקט
             for (let key in note) {
                 if (key ==='imgUrl'){
@@ -47,25 +48,34 @@ class mainControlClass {
             continue;
         }
         if(key=='id') continue;
+       
         let label = document.createElement('label');
         label.className = 'noteLabel';
         label.textContent = key + ': ';
         noteElement.appendChild(label);
- 
         let valueElement = document.createElement('div');
-        valueElement.textContent = note[key];
         valueElement.className = 'noteValue';
+        if(key== 'dateCreated'){
+            valueElement.textContent = note.getDateCreatedStr();
         noteElement.appendChild(valueElement);
+            continue;
+        }
+        valueElement.textContent = note[key];
+        noteElement.appendChild(valueElement);
+       
     }
+    const btnElement = document.createElement('div');
+            btnElement.className = 'btnDiv';
+    event.appendChild(btnElement);
     const btnEdit = document.getElementById('btnEdit') as HTMLInputElement;
-    
+   
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
-            deleteButton.addEventListener('click', () =>{ 
+            deleteButton.textContent = 'X';
+            deleteButton.addEventListener('click', () =>{
                 // console.log(btnEdit.checked);
                 this.deleteNote(index,event)});
  
-            noteElement.appendChild(deleteButton);
+                btnElement.appendChild(deleteButton);
             event.appendChild(noteElement);
         });
     }

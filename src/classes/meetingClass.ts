@@ -54,15 +54,15 @@ public getwarning(): string {
         form.id = 'id_form';
     
         // Add title input
-        this.addInput(form, 'title', 'text','form-control');
-        this.addInput(form, 'text', 'text','form-control');
-        this.addInput(form, 'imgUrl', 'text','form-control');
-        this.addInput(form, 'location', 'text','form-control');
-        this.addInput(form, 'date', 'date', 'form-control');
-        this.addInput(form, 'time', 'time','form-control');
+        this.addInput(form, 'כותרת', 'text','form-control');
+        this.addInput(form, 'פרטי הערה', 'text','form-control');
+        this.addInput(form, 'תמונה', 'text','form-control');
+        this.addInput(form, 'מיקום', 'text','form-control');
+        this.addInput(form, 'תאריך', 'date', 'form-control');
+        this.addInput(form, 'שעה', 'time','form-control');
     
         let button = document.createElement('button');
-        button.textContent = 'submit';
+        button.textContent = 'שלח';
         form.appendChild(button);
         return form;
     } 

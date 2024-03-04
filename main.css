@@ -97,6 +97,7 @@ button:hover {
     margin-top: 20px;
 
 }
+
 /* עיצוב כללי להתראה */
 .alert {
     padding: 15px;
@@ -172,13 +173,18 @@ input:checked + .slider:before {
     color: #85d169;
     margin-top: 10px;
     position: relative;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
     background-image: url('https://images.pexels.com/photos/461717/pexels-photo-461717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: cover;
+    background-size: 60%; /* גודל התמונה */
+    background-repeat: no-repeat; /* אי הפעלת חזרות */
+    background-position: right; /* מיקום התמונה - מוצמד לימין */
    
 }
 
 .noteLabel{
     font-size: 22px;
-    color: #eaa6a6;
+    color: #030303;
 }
 
