@@ -38,7 +38,7 @@ public getDate(): string {
         day: 'numeric'
     };
     let formattedDate = this.DataAndTime.toLocaleString('en-IL', options);
-    return formattedDate.substring(0,24);
+    return formattedDate;
 }
 
 public getDataAndTime():string {
@@ -70,20 +70,20 @@ public getwarning(): string {
             form.id = 'id_form';
         
             // Add title input
-            this.addInput(form, 'כותרת', 'text','form-control');
-            this.addInput(form, 'פרטי הערה', 'text','form-control');
-            this.addInput(form, 'תמונה', 'text','form-control');
-            this.addInput(form, 'מיקום', 'text','form-control');
-            this.addInput(form, 'תאריך', 'date', 'form-control');
-            this.addInput(form, 'שעה', 'time','form-control');
-            this.addInput(form, 'אביזרים', 'text','form-control');
+            this.addInput(form, 'title','כותרת', 'text','form-control');
+            this.addInput(form, 'text','פרטי הערה', 'text','form-control');
+            this.addInput(form, 'imgUrl', 'תמונה','form-control');
+            this.addInput(form, 'location', 'text','form-control');
+            this.addInput(form, 'data', 'date', 'form-control');
+            this.addInput(form, 'time', 'time','form-control');
+            this.addInput(form, 'equipment', 'text','form-control');
         
             let button = document.createElement('button');
-            button.textContent = 'שלח';
+            button.textContent = 'submit';
             form.appendChild(button);
             return form;
         } 
-        private static addInput(form: HTMLFormElement, id: string, type: string,className:string='form-control'): void {
+        private static addInput(form: HTMLFormElement, id: string,laben:string, type: string,className:string='form-control'): void {
             let label = document.createElement('label');
             label.textContent = id;
             form.appendChild(label);

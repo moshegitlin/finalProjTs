@@ -169,6 +169,7 @@ input:checked + .slider:before {
 }
 /*סגנון כללי לטבלה*/
 .noteDiv {
+    background-color: #f8e4e4;
     font-size: 15px;
     color: #85d169;
     margin-top: 10px;
