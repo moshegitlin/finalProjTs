@@ -92,6 +92,7 @@ public getwarning(): string {
             input.id = 'id_' + id;
             input.className = className;
             input.type = type;
+            input.required = true;
             form.appendChild(input);
         }
         public static createFormAndHandleSubmit(event:Element): Promise<any> {
