@@ -168,3 +168,22 @@ input:checked + .slider:before {
     background-color: white;
 }
 
+#notes{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    background-color: #fff; /* רקע לבן לטופס */
+    border-radius: 8px; /* פינות מעוגלות */
+    padding: 20px; /* ריווח פנימי */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* הצללה עדינה */
+}
+.noteDiv{
+    font-size: large;
+    color: #a94442;
+    
+}
+.noteLabel{
+    font-size: large;
+    color: #3c763d;
+}

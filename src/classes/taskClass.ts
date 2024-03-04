@@ -33,7 +33,7 @@ class Task extends AbstractNote implements TaskInterface{
         // Add title input
         this.addInput(form, 'title','Title', 'text','form-control');
         this.addInput(form, 'text','Text', 'text','form-control');
-        this.addInput(form, 'img-url','Img', 'text','form-control');
+        this.addInput(form, 'imgUrl','Img', 'text','form-control');
         this.addInput(form, 'last_Date_Execution','last Date Execution', 'date','form-control');
         let button = document.createElement('button');
         button.textContent = 'submit';

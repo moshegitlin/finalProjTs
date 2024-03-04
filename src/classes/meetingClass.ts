@@ -56,7 +56,7 @@ public getwarning(): string {
         // Add title input
         this.addInput(form, 'title', 'text','form-control');
         this.addInput(form, 'text', 'text','form-control');
-        this.addInput(form, 'img_url', 'text','form-control');
+        this.addInput(form, 'imgUrl', 'text','form-control');
         this.addInput(form, 'location', 'text','form-control');
         this.addInput(form, 'date', 'date', 'form-control');
         this.addInput(form, 'time', 'time','form-control');

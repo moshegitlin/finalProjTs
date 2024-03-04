@@ -27,9 +27,9 @@ class mainControlClass {
                 } catch (error) {
                     console.error(error);
                 }
-    
+   
     }
-    
+   
     deleteNote(index: number, event:Element) {
         this.notes.splice(index, 1);
         this.displayNotes(event);
@@ -42,26 +42,31 @@ class mainControlClass {
         this.notes.forEach((note, index) => {
             // עיבוד כל זוג מפתח-ערך באובייקט
     for (let key in note) {
+        if (key ==='imgUrl'){
+            noteElement.style.backgroundImage = `url(${note[key]})`;
+            continue;
+        }
+        if(key=='id') continue;
         let label = document.createElement('label');
         label.className = 'noteLabel';
-        label.textContent = key;
+        label.textContent = key + ': ';
         noteElement.appendChild(label);
-
+ 
         let valueElement = document.createElement('div');
         valueElement.textContent = note[key];
         valueElement.className = 'noteValue';
         noteElement.appendChild(valueElement);
     }
-
+ 
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', () => this.deleteNote(index,event));
-
+ 
             noteElement.appendChild(deleteButton);
             event.appendChild(noteElement);
         });
     }
-
+ 
     eventForm = async (eventForm:Element,eventNotes:Element) => {
         try {
             const form = await EventClass.createFormAndHandleSubmit(eventForm);
@@ -133,6 +138,6 @@ class mainControlClass {
             });
         });
     }
-
+ 
 }
 export default mainControlClass;
