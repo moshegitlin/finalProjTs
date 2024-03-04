@@ -57,10 +57,13 @@ class mainControlClass {
         valueElement.className = 'noteValue';
         noteElement.appendChild(valueElement);
     }
- 
+    const btnEdit = document.getElementById('btnEdit') as HTMLInputElement;
+    
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
-            deleteButton.addEventListener('click', () => this.deleteNote(index,event));
+            deleteButton.addEventListener('click', () =>{ 
+                console.log(btnEdit.checked);
+                this.deleteNote(index,event)});
  
             noteElement.appendChild(deleteButton);
             event.appendChild(noteElement);
@@ -99,7 +102,10 @@ class mainControlClass {
     }
     createSelectAndListen = (event: Element): Promise<any> => {
         return new Promise((resolve, reject) => {
+            let div = document.createElement('div');
+            div.className ="selectDiv"
             let select = document.createElement('select');
+            div.appendChild(select);
             select.id = 'id_add_note';
             select.className = 'form-select';
      
@@ -120,10 +126,11 @@ class mainControlClass {
      
             let button = document.createElement('button');
             button.textContent = 'הוסף פתק חדש';
-            event.appendChild(button);
+            div.appendChild(button);
      
             if (event) {
-                event.appendChild(select);
+                event.innerHTML = '';
+                event.appendChild(div);
             } else {
                 reject(new Error('Container not found'));
                 return;
@@ -132,8 +139,9 @@ class mainControlClass {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
                 let selectedOption = select.value;
-                event.removeChild(select);
-                event.removeChild(button);
+                div.removeChild(select);
+                div.removeChild(button);
+                event.removeChild(div);
                 resolve(selectedOption);
             });
         });
