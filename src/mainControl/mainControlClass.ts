@@ -62,7 +62,7 @@ class mainControlClass {
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.addEventListener('click', () =>{ 
-                console.log(btnEdit.checked);
+                // console.log(btnEdit.checked);
                 this.deleteNote(index,event)});
  
             noteElement.appendChild(deleteButton);
