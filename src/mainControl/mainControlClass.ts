@@ -71,7 +71,7 @@ class mainControlClass {
         try {
             const form = await EventClass.createFormAndHandleSubmit(eventForm);
             console.log(form);
-            this.notes.push(new EventClass(form.title,form.text,form.img_url,form.location,form.data,form.time,form.equipment));
+            this.notes.push(new EventClass(form.title,form.text,form.imgUrl,form.location,form.data,form.time,form.equipment));
             this.displayNotes(eventNotes);
         } catch (error) {
             console.error(error);
@@ -81,7 +81,7 @@ class mainControlClass {
         try {
             const form = await MeetingClass.createFormAndHandleSubmit(eventForm);
             console.log(form);
-            this.notes.push(new MeetingClass(form.title,form.text,form.img_url,form.location,form.date,form.time));
+            this.notes.push(new MeetingClass(form.title,form.text,form.imgUrl,form.location,form.date,form.time));
             this.displayNotes(eventNotes);
         } catch (error) {
             console.error(error);
@@ -91,7 +91,7 @@ class mainControlClass {
         try {
             const form = await Task.createFormAndHandleSubmit(eventForm);
             console.log(form);
-            this.notes.push(new Task(form.title,form.text,form.img_url,form.last_Date_Execution));
+            this.notes.push(new Task(form.title,form.text,form.imgUrl,form.last_Date_Execution));
             this.displayNotes(eventNotes);
         } catch (error) {
             console.error(error);
