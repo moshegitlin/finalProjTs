@@ -189,3 +189,24 @@ input:checked + .slider:before {
     color: #030303;
 }
 
+.tasks{
+    margin-left: 30%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;  
+    display: inline-block;
+    position: absolute;
+}
+.tasks1{
+    margin-left: 60%;
+    position: relative;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
+    display: inline-block; 
+}
+.tasksText{
+    font-size: 20px;
+    color: #000000;
+}
