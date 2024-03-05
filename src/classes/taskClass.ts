@@ -21,8 +21,8 @@ class Task extends AbstractNote implements TaskInterface{
     public getwarning(): string {
         return `
         <div>
-        <p>Creation Date: ${this.getDateCreatedStr}</p>
-        <p>Last Execution Date: ${this.getLastDataExecution}</p>
+        <p>Creation Date: ${this.getDateCreatedStr()}</p>
+        <p>Last Execution Date: ${this.getLastDataExecution()}</p>
         </div>
         `;
     }

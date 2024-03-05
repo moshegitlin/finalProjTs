@@ -7,19 +7,19 @@ class mainControlClass {
     constructor() {
         this.notes = [];
     }
-    createNote = async (eventForm:Element,eventNotes:Element) => {
+    createNote = async (eventForm:Element,eventNotes:Element,eventTasks:Element) => {
         try {
             const selectedOption = await this.createSelectAndListen(eventForm);
             console.log(selectedOption);
             switch (selectedOption) {
                 case 'event':
-                    this.eventForm(eventForm,eventNotes);
+                    this.eventForm(eventForm,eventNotes,eventTasks);
                     break;
                 case 'meeting':
-                    this.meetingtForm(eventForm,eventNotes);
+                    this.meetingtForm(eventForm,eventNotes,eventTasks);
                     break;
                 case 'task':
-                    this.taskForm(eventForm,eventNotes);
+                    this.taskForm(eventForm,eventNotes,eventTasks);
                     break;
                     default:
                         break;
@@ -29,16 +29,16 @@ class mainControlClass {
                 }
     }
    
-    deleteNote(index: number, event:Element) {
+    deleteNote(index: number, event:Element,tasksEvent:Element) {
         this.notes.splice(index, 1);
-        this.displayNotes(event);
+        this.displayNotes(event,tasksEvent);
     }
-    displayNotes(event:Element) {
-        event.innerHTML = ''; // Clear the container
+    displayNotes(notesEvent:Element,tasksEvent:Element) {
+        notesEvent.innerHTML = ''; // Clear the container
         this.notes.forEach((note, index) => {
             const noteElement = document.createElement('div');
             noteElement.className = 'noteDiv';
-            event.appendChild(noteElement);
+            notesEvent.appendChild(noteElement);
            
            
             // עיבוד כל זוג מפתח-ערך באובייקט
@@ -64,10 +64,11 @@ class mainControlClass {
         noteElement.appendChild(valueElement);
        
     }
+    const btnEdit = document.getElementById('btnEdit') as HTMLInputElement;
     const btnElement = document.createElement('div');
             btnElement.className = 'btnDiv';
-    event.appendChild(btnElement);
-    const btnEdit = document.getElementById('btnEdit') as HTMLInputElement;
+           
+            notesEvent.appendChild(btnElement);
             btnEdit.addEventListener('click', () => {
                 if (btnEdit.checked) {
                     deleteButton.textContent = 'X';
@@ -76,47 +77,52 @@ class mainControlClass {
                 }
             });
             const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'X';
+            deleteButton.textContent =!btnEdit.checked? 'הצג פרטים':'X';
+            
             deleteButton.addEventListener('click', () =>{
-                // console.log(btnEdit.checked);
+                console.log(btnEdit.checked);
                 if(btnEdit.checked)
-                this.deleteNote(index,event)
-                else
-                // alert('אין הרשאה למחוק פתקים');
-                event.innerHTML+=this.notes[index].getwarning();
+                this.deleteNote(index,notesEvent,tasksEvent)
+                else{
+                    tasksEvent.innerHTML='';
+                    tasksEvent.innerHTML+=this.notes[index].getwarning();
+                    this.displayNotes(notesEvent,tasksEvent)
+                }
+          
+                
             
             });
                 btnElement.appendChild(deleteButton);
-            event.appendChild(noteElement);
+                notesEvent.appendChild(btnElement);
         });
     }
  
-    eventForm = async (eventForm:Element,eventNotes:Element) => {
+    eventForm = async (eventForm:Element,eventNotes:Element,eventTasks:Element) => {
         try {
             const form = await EventClass.createFormAndHandleSubmit(eventForm);
             console.log(form);
             this.notes.push(new EventClass(form.title,form.text,form.imgUrl,form.location,form.data,form.time,form.equipment));
-            this.displayNotes(eventNotes);
+            this.displayNotes(eventNotes,eventTasks);
         } catch (error) {
             console.error(error);
         }
     }
-    meetingtForm = async (eventForm:Element,eventNotes:Element) => {
+    meetingtForm = async (eventForm:Element,eventNotes:Element,eventTasks:Element) => {
         try {
             const form = await MeetingClass.createFormAndHandleSubmit(eventForm);
             console.log(form);
             this.notes.push(new MeetingClass(form.title,form.text,form.imgUrl,form.location,form.date,form.time));
-            this.displayNotes(eventNotes);
+            this.displayNotes(eventNotes,eventTasks);
         } catch (error) {
             console.error(error);
         }
     }
-    taskForm = async (eventForm:Element,eventNotes:Element) => {
+    taskForm = async (eventForm:Element,eventNotes:Element,eventTasks:Element) => {
         try {
             const form = await Task.createFormAndHandleSubmit(eventForm);
             console.log(form);
             this.notes.push(new Task(form.title,form.text,form.imgUrl,form.last_Date_Execution));
-            this.displayNotes(eventNotes);
+            this.displayNotes(eventNotes,eventTasks);
         } catch (error) {
             console.error(error);
         }

@@ -41,11 +41,11 @@ public getDate(): string {
 public getwarning(): string {
     return `
     <div>
-    <p>date of meeting: ${this.getDate}</p>
-    <h2>title: ${this.getTitle}</h2>
-    <p>text: ${this.getText}</p>
+    <p>date of meeting: ${this.getDate()}</p>
+    <h2>title: ${this.getTitle()}</h2>
+    <p>text: ${this.getText()}</p>
     <p>location: ${this.location}</p>
-    <p>time of meeting: ${this.getTime}</p>
+    <p>time of meeting: ${this.getTime()}</p>
     </div>
         `;
     }
