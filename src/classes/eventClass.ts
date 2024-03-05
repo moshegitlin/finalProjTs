@@ -70,11 +70,11 @@ public getwarning(): string {
             form.id = 'id_form';
         
             // Add title input
-            this.addInput(form, 'title','כותרת', 'text','form-control');
-            this.addInput(form, 'text','פרטי הערה', 'text','form-control');
-            this.addInput(form, 'imgUrl', 'תמונה','form-control');
+            this.addInput(form, 'title', 'text','form-control');
+            this.addInput(form, 'text', 'text','form-control');
+            this.addInput(form, 'imgUrl','form-control');
             this.addInput(form, 'location', 'text','form-control');
-            this.addInput(form, 'data', 'date', 'form-control');
+            this.addInput(form, 'date', 'date', 'form-control');
             this.addInput(form, 'time', 'time','form-control');
             this.addInput(form, 'equipment', 'text','form-control');
         
@@ -83,7 +83,7 @@ public getwarning(): string {
             form.appendChild(button);
             return form;
         } 
-        private static addInput(form: HTMLFormElement, id: string,laben:string, type: string,className:string='form-control'): void {
+        private static addInput(form: HTMLFormElement, id: string, type: string,className:string='form-control'): void {
             let label = document.createElement('label');
             label.textContent = id;
             form.appendChild(label);

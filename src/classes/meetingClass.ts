@@ -54,19 +54,19 @@ public getwarning(): string {
         form.id = 'id_form';
     
         // Add title input
-        this.addInput(form, 'כותרת', 'text','form-control');
+        this.addInput(form, 'title', 'text','form-control');
         this.addInput(form, 'text', 'text','form-control');
         this.addInput(form, 'imgUrl', 'text','form-control');
-        this.addInput(form, 'מיקום', 'text','form-control');
-        this.addInput(form, 'תאריך', 'date', 'form-control');
-        this.addInput(form, 'שעה', 'time','form-control');
+        this.addInput(form, 'location', 'text','form-control');
+        this.addInput(form, 'date', 'date', 'form-control');
+        this.addInput(form, 'time', 'time','form-control');
     
         let button = document.createElement('button');
         button.textContent = 'submit';
         form.appendChild(button);
         return form;
     } 
-    private static addInput(form: HTMLFormElement, id: string,labeln:string, type: string,className:string='form-control'): void {
+    private static addInput(form: HTMLFormElement, id: string, type: string,className:string='form-control'): void {
         let label = document.createElement('label');
         label.textContent = id;
         form.appendChild(label);
