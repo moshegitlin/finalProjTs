@@ -4,15 +4,28 @@ body {
     color: #172d13; /* ירוק כהה לטקסט */
     font-family: 'Arial', sans-serif; /* גופן מודרני ונקי */
   }
-.container {
+  .container {
     max-width: 1200px;
     margin: 0 auto; /* מרווח מהעליון והתחתון */
     padding: 0 20px; /* מרווח מהצדדים */
     box-sizing: border-box; /* כולל padding ו-border בגודל */
-    padding: 150px;
     border-radius: 5px;
     border: 1px solid #1c1c1c;
     box-sizing: border-box; 
+}
+
+.tasks {
+    padding: 0 16px;
+    width: fit-content; /* הוספת קוד זה כדי לאפשר ל-.tasks לקבל רוחב המתאים לתוכן שלו */
+    max-width: 50%; /* קודם היו כאן */
+    margin: 20px auto;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.tasksText{
+    font-size: 20px;
+    color: #000000;
 }
 h1{
     padding: 25px;
@@ -189,24 +202,3 @@ input:checked + .slider:before {
     color: #030303;
 }
 
-.tasks{
-    margin-left: 30%;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;  
-    display: inline-block;
-    position: absolute;
-}
-.tasks1{
-    margin-left: 60%;
-    position: relative;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box; 
-    display: inline-block; 
-}
-.tasksText{
-    font-size: 20px;
-    color: #000000;
-}

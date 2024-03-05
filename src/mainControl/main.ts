@@ -1,4 +1,5 @@
 import mainControlClass from "./mainControlClass.js";
+import EventClass from "../classes/eventClass.js";
 const MainControlClass = new mainControlClass();
 const divEvent = document.querySelector("#form") as HTMLElement;
 let switchState: boolean = false;
@@ -7,9 +8,13 @@ const slider = document.querySelector('.slider') as HTMLElement;
 const status = document.querySelector('.status') as HTMLElement;
 const btnAdd = document.querySelector('#btnAdd') as HTMLElement;
 const notesContainer = document.querySelector('#notes') as HTMLElement;
+let imgUrl = 'https://images.pexels.com/photos/461717/pexels-photo-461717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+const event = new EventClass('title', 'text', 'imgUrl', 'location','2024-03-30', '15:13', 'equipment');
+MainControlClass.notes.push(event);
+MainControlClass.notes.push(event);
 
-
-
+MainControlClass.displayNotes(notesContainer);
+ 
 
 btnAdd.addEventListener('click', ()=>{MainControlClass.createNote(divEvent,notesContainer)
 });
