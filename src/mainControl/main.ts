@@ -28,17 +28,21 @@ function updateSwitchState(newState: boolean) {
         textEdit.innerText = ""
         status.innerText = 'עריכה';
         btnAdd.style.display = 'block';
+        tasks.innerHTML = '';
+        tasks.style.display = 'none';
     } else {
         slider.classList.remove('active');
         status.innerText = 'כבוי';
         textEdit.innerText = "אנא הפעל מצב עריכה כדי להמשיך"
         btnAdd.style.display = 'none';
+        tasks.style.display = 'block';
     }
 }
 
 btnEdit.addEventListener('click', function() {
     updateSwitchState(btnEdit.checked);
 });
+
 
 updateSwitchState(switchState);
 
